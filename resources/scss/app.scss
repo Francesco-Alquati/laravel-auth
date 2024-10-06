@@ -4,12 +4,13 @@
 
 #sidebar{
     width: 150px;
-    height: 100vh;
+    height: 100bh;
     background-color: black;
 }
 #content{
     width: calc(100vw - 150px);
     height: 100vh;
+    overflow: auto;
 }
 header{
     height: 75px;
