@@ -1,16 +1,16 @@
-@extends('layouts.dashbord');
+@extends('layouts.dashboard')
 
 @section('main-content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-12 col-md-6 col-sm-4">
-                <div class="d-flex">
+            <div class="col-12">
+                <div class="d-flex  align-items-center justify-content-between p-3">
                     <h2>Progetti</h2>
-                    <a href="" class="btn btn-primary">Aggiungi Progetto</a>
+                    <a href="" class="btn btn-primary btn-sm">Aggiungi Progetto</a>
                 </div>
             </div>
             <div class="col-12">
-                <table class="table table-striped-success">
+                <table class="table table-success table-striped">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -20,18 +20,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($project as $project)
+                        @foreach ($projects as $project)
                         <tr>
                             <td>{{ $project->id }}</td>
                             <td>{{ $project->name }}</td>
                             <td>{{ $project->slug }}</td>
                             <td>
                                 <div class="d-flex">
-                                    <a href="" class="btn btn-sm btn-danger">button</a>
+                                    <a href="" class="btn btn-sm btn-warning">check</a>
                                 </div>
                             </td>
                         </tr>
-                            
                         @endforeach
                     </tbody>
                 </table>
