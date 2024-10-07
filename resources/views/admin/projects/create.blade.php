@@ -7,10 +7,10 @@
                 <h1>Aggiungi Progetto</h1>
             </div>
             <div class="col-12">
-                @if ($error->any())
+                @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul class="list-unstyled">
-                            @foreach ($error->all() as $error)
+                            @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
                             @endforeach
                         </ul>
