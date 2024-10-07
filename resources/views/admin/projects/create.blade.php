@@ -7,12 +7,24 @@
                 <h1>Aggiungi Progetto</h1>
             </div>
             <div class="col-12">
+                @if ($error->any())
+                    <div class="alert alert-danger">
+                        <ul class="list-unstyled">
+                            @foreach ($error->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <form action="{{ route('admin.projects.store') }}" method="post">
                     @csrf
                     <div class="row">
                         <div class="col-12">
                             <label class="label-form">Nome Progetto</label>
                             <input type="text" name="name" id="" class="form-control form-control-sm" placeholder="Progetto" value="{{ old('name') }}">
+                            @error('name')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="col-12">
                             <label class="label-form">Descrizione Progetto</label>
