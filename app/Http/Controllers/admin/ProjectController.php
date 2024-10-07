@@ -79,7 +79,14 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        
+        $form_data = $request->all();
+
+        $form_data['slug'] = Project::generateSlug($form_data['name']);
+
+        $project->update($form_data);
+
+        return redirect()->route('admin.projects.index');
+
     }
 
     /**
