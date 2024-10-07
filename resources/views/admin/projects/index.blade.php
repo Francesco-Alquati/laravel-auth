@@ -29,7 +29,11 @@
                                 <div class="d-flex align-items-center justify-content-center">
                                     <a href="{{ route('admin.projects.show', ['project' => $project->id]) }}" class="btn btn-sm btn-info"><i class="fa-solid fa-eye"></i></a>
                                     <a href="{{ route('admin.projects.edit', ['project' => $project->id]) }}" class="btn btn-sm btn-warning ms-1"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    <a href="" class="btn btn-sm btn-danger ms-1"><i class="fa-solid fa-trash" style="color: #000000;"></i></a>
+                                    <form action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger ms-1" onclick="return confirm('sicuro di voler cancellare questo elemento')"><i class="fa-solid fa-trash" style="color: #000000;"></i></button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
