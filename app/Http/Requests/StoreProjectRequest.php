@@ -25,7 +25,7 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'slug' => 'required|max:255'
+            'slug' => 'max:255'
         ];
     }
     public function message()

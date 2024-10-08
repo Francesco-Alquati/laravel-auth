@@ -21,10 +21,14 @@
                     <div class="row">
                         <div class="col-12">
                             <label class="label-form">Nome Progetto</label>
-                            <input type="text" name="name" id="" class="form-control form-control-sm" placeholder="Progetto" value="{{ old('name') }}">
+                            <input type="text" name="name" id="" class="form-control form-control-sm" placeholder="Progetto" value="{{ old('name') }}" required>
                             @error('name')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
+                        </div>
+                        <div class="col-12">
+                            <label for="" class="control-label">Immagine Copertina Progetto</label>
+                            <input type="file" name="cover_image" id="cover_image" class="form-control form-control-sm">
                         </div>
                         <div class="col-12">
                             <label class="label-form">Descrizione Progetto</label>

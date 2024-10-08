@@ -37,9 +37,10 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
-        $form_data = $request->all();
+        dd($request->all());
+        $form_data = $request->validate();
 
         $project = new project();
         $project->fill($form_data);
