@@ -25,8 +25,8 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'slug' => 'max:255',
-            'cover_image' => ['nullable', 'image', 'max:4084']
+            'image' => 'nullable|image|max:4084',
+            'summary' => 'nullable'
         ];
     }
     public function message()
@@ -35,8 +35,8 @@ class StoreProjectRequest extends FormRequest
             'name.required' => "Il nome del progetto è obbligatorio",
             'name.max' => "Il nome del progetto deve essere lungo al massimo :max caratteri",
             'name.unique' => "É già presente un progetto con questo nome",
-            'cover_image.image' => "Il file deve essere un immagine",
-            'cover_image.size' => "L'immagine deve essere grande massimo 484 Kb",
+            'image.image' => "Il file deve essere un immagine",
+            'image.size' => "L'immagine deve essere grande massimo 484 Kb",
             'slug.required' => "Lo slug del progetto è obbligatorio",
             'slug.max' => "Lo slug del progetto deve essere lungo al massimo :max caratteri"
         ];

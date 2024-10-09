@@ -28,7 +28,7 @@
                         </div>
                         <div class="col-12">
                             <label for="" class="control-label">Immagine Copertina Progetto</label>
-                            <input type="file" name="cover_image" id="cover_image" class="form-control form-control-sm">
+                            <input type="file" name="image" id="image" class="form-control form-control-sm">
                         </div>
                         <div class="col-12">
                             <label class="label-form">Descrizione Progetto</label>

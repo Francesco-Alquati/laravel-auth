@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+
 
 class ProjectController extends Controller
 {
@@ -39,12 +41,19 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        dd($request->all());
-        $form_data = $request->validate();
+        
+        $form_data = $request->validated();
+
+        $form_data['slug'] = Project::generateSlug($form_data['name'], '-');
+
+        if($request->hasFile('image')){
+            $path = Storage::disk('public')->put('projects_image', $form_data['image']);
+            $form_data['image'] = $path;
+        }
 
         $project = new project();
+
         $project->fill($form_data);
-        $project['slug'] = Project::generateSlug($form_data['name'], '-');
 
         $project->save();
 

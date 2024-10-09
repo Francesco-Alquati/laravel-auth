@@ -17,7 +17,7 @@ use App\Http\Controllers\Admin\ProjectController as ProjectController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage');
 });
 
 // Route::get('/dashboard', function () {

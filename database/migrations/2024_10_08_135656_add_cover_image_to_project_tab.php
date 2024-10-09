@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('projects', function (Blueprint $table) {
 
-            $table->string('cover_image')->nullable()->after('slug');
+            $table->string('image')->nullable()->after('slug');
         });
     }
 
@@ -26,9 +26,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('project_tab', function (Blueprint $table) {
-            
-            $table->dropColumn('cover_image');
+        Schema::table('projects', function (Blueprint $table) {
             $table->dropColumn('image');
         });
     }

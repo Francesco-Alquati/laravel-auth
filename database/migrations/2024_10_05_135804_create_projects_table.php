@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name',200);
             $table->string('slug');
             $table->text('summary')->nullable();
+            
             $table->timestamps();
         });
     }
