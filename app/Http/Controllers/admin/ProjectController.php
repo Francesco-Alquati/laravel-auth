@@ -44,14 +44,14 @@ class ProjectController extends Controller
         
         $form_data = $request->validated();
 
-        $form_data['slug'] = Project::generateSlug($form_data['name'], '-');
+        $project = new project();
 
         if($request->hasFile('image')){
             $path = Storage::disk('public')->put('projects_image', $form_data['image']);
             $form_data['image'] = $path;
         }
 
-        $project = new project();
+        $form_data['slug'] = Project::generateSlug($form_data['name'], '-');
 
         $project->fill($form_data);
 
