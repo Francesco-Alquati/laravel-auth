@@ -25,16 +25,20 @@ class UpdateProjectRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'slug' => 'required|max:255'
+            'image' => 'nullable|image|max:4084',
+            'summary' => 'nullable'
         ];
     }
     public function message()
     {
         return [
-            'name.required' => 'Il nome del progetto è obbligatorio',
-            'name.max' => 'Il nome del progetto deve essere lungo al massimo :max caratteri',
-            'slug.required' => 'Lo slug del progetto è obbligatorio',
-            'slug.max' => 'Lo slug del progetto deve essere lungo al massimo :max caratteri'
+            'name.required' => "Il nome del progetto è obbligatorio",
+            'name.max' => "Il nome del progetto deve essere lungo al massimo :max caratteri",
+            'name.unique' => "É già presente un progetto con questo nome",
+            'image.image' => "Il file deve essere un immagine",
+            'image.size' => "L'immagine deve essere grande massimo 484 Kb",
+            'slug.required' => "Lo slug del progetto è obbligatorio",
+            'slug.max' => "Lo slug del progetto deve essere lungo al massimo :max caratteri"
         ];
     }
 }

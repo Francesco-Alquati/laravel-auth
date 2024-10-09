@@ -93,6 +93,14 @@ class ProjectController extends Controller
     {
         $form_data = $request->validated();
 
+        if($request->hasFile('image')){
+            if($project->image != null){
+                Storage::disk('public')->delete($project->image);
+            }
+            $path = Storage::disk('public')->put('projects_image', $form_data['image']);
+            $form_data['image'] = $path;
+        }
+
         $form_data['slug'] = Project::generateSlug($form_data['name']);
 
         $project->update($form_data);

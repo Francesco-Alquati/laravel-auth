@@ -27,7 +27,7 @@
                             @enderror
                         </div>
                         <div class="col-12">
-                            <label for="" class="control-label">Immagine Copertina Progetto</label>
+                            <label for="" class="control-label">Immagine Progetto</label>
                             <input type="file" name="image" id="image" class="form-control form-control-sm">
                         </div>
                         <div class="col-12">
